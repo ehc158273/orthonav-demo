@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OrthoNav</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+      background: #f7f8fa;
+      color: #1f2933;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .tagline {
+      font-size: 22px;
+      font-weight: 600;
+      margin-top: 24px;
+    }
+
+    .note {
+      margin-top: 32px;
+      font-size: 15px;
+      color: #52606d;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Welcome to OrthoNav</h1>
+    <p>
+      OrthoNav helps patients, hospitals, and insurance stakeholders understand
+      orthopedic cost guidance before the final bill.
+    </p>
+    <p class="tagline">
+      Turning unpredictable orthopedic costs into clear, patient-ready guidance.
+    </p>
+    <p class="note">
+      Use the chat interface to ask about orthopedic surgery costs, hospital charges,
+      insurance-related concerns, and care-navigation questions.
+    </p>
+  </div>
+
+  <!-- IBM watsonx Orchestrate Embedded Agent Root -->
+  <div id="root"></div>
+
+  <!-- IBM watsonx Orchestrate Embedded Agent Script -->
+  <script>
+    window.wxOConfiguration = {
+      orchestrationID: "f45fb28521aa49f19899a404c621721e_92c8c2d5-7de9-4345-a670-424a15ab589f",
+      hostURL: "https://au-syd.watson-orchestrate.cloud.ibm.com",
+      rootElementID: "root",
+      deploymentPlatform: "ibmcloud",
+      crn: "crn:v1:bluemix:public:watsonx-orchestrate:au-syd:a/f45fb28521aa49f19899a404c621721e:92c8c2d5-7de9-4345-a670-424a15ab589f::",
+      chatOptions: {
+        agentId: "b1c1a725-e245-4038-aa5c-6f1f06a02567",
+        agentEnvironmentId: "8e8c084e-4a98-4b01-b06b-317b7ba72a7d"
+      }
+    };
+
+    setTimeout(function () {
+      const script = document.createElement('script');
+      script.src = `${window.wxOConfiguration.hostURL}/wxochat/wxoLoader.js?embed=true`;
+      script.addEventListener('load', function () {
+        wxoLoader.init();
+      });
+      document.head.appendChild(script);
+    }, 0);
+  </script>
+</body>
+</html>
