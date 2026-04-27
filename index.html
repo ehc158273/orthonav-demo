@@ -1,21 +1,104 @@
-<script>
-  window.wxOConfiguration = {
-    orchestrationID: "f45fb28521aa49f19899a404c621721e_92c8c2d5-7de9-4345-a670-424a15ab589f",
-    hostURL: "https://au-syd.watson-orchestrate.cloud.ibm.com",
-    rootElementID: "root",
-    deploymentPlatform: "ibmcloud",
-    crn: "crn:v1:bluemix:public:watsonx-orchestrate:au-syd:a/f45fb28521aa49f19899a404c621721e:92c8c2d5-7de9-4345-a670-424a15ab589f::",
-    chatOptions: {
-        agentId: "b1c1a725-e245-4038-aa5c-6f1f06a02567", 
-        agentEnvironmentId: "8e8c084e-4a98-4b01-b06b-317b7ba72a7d",
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OrthoNav Prototype</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8faf9;
+      color: #1f2933;
     }
-  };
-  setTimeout(function () {
-    const script = document.createElement('script');
-    script.src = `${window.wxOConfiguration.hostURL}/wxochat/wxoLoader.js?embed=true`;
-    script.addEventListener('load', function () {
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 24px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
+      color: #0f766e;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      margin-top: 24px;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #64748b;
+      margin-top: 16px;
+    }
+
+    #root {
+      min-height: 600px;
+      margin-top: 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>OrthoNav Prototype</h1>
+
+    <p>
+      OrthoNav is an IBM watsonx Orchestrate multi-agent prototype for
+      orthopedic cost, coding, and insurance navigation.
+    </p>
+
+    <div class="card">
+      <h2>Try OrthoNav</h2>
+      <p>
+        Ask about orthopedic surgery cost, coding risk, reimbursement review,
+        or patient-friendly explanations.
+      </p>
+
+      <div id="root"></div>
+
+      <p class="note">
+        OrthoNav provides decision-support estimates only. It does not provide
+        final medical, billing, or insurance decisions.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    window.wxOConfiguration = {
+      orchestrationID: "f45fb28521aa49f19899a404c621721e_92c8c2d5-7de9-4345-a670-424a15ab589f",
+      hostURL: "https://au-syd.watson-orchestrate.cloud.ibm.com",
+      rootElementID: "root",
+      deploymentPlatform: "ibmcloud",
+      crn: "crn:v1:bluemix:public:watsonx-orchestrate:au-syd:a/f45fb28521aa49f19899a404c621721e:92c8c2d5-7de9-4345-a670-424a15ab589f::",
+      chatOptions: {
+        agentId: "b1c1a725-e245-4038-aa5c-6f1f06a02567",
+        agentEnvironmentId: "8e8c084e-4a98-4b01-b06b-317b7ba72a7d"
+      }
+    };
+
+    setTimeout(function () {
+      const script = document.createElement("script");
+      script.src = `${window.wxOConfiguration.hostURL}/wxochat/wxoLoader.js?embed=true`;
+      script.addEventListener("load", function () {
         wxoLoader.init();
-    });
-    document.head.appendChild(script);
-  }, 0);                     
-</script>
+      });
+      document.head.appendChild(script);
+    }, 0);
+  </script>
+</body>
+</html>
